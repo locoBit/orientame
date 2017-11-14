@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+var express             = require('express');
+var router              = express.Router();
+let indexController     = require('../controllers/indexController');
+//let productsController  = require('../controllers/productsController');
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', indexController.get);
+
+// POST de productos
+//router.post('/products', productsController.post);
+
 
 module.exports = router;
