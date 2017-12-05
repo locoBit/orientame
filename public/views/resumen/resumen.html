@@ -1,0 +1,122 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Ingresa tu número de cuenta.</h5>
+            </div>
+            <div class="ibox-content">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label for="txtNoCuenta">Número de cuenta:</label>
+                    <input type="text" class="form-control" id="txtNoCuenta">
+                  </div>
+                  <button type="submit" class="btn btn-success" ng-click="enviarNoCuenta()">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-hide="hide">
+    <div class="col-lg-12">
+        <div class="white-box analytics-info">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">José Angel Gonzalez Guerrero</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Cantidad</th>
+                            <th>Créditos</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Materias Cursadas</td>
+                            <td>15</td>
+                            <td>56</td>
+                        </tr>
+                        <tr>
+                            <td>Materias por Cursar</td>
+                            <td>45</td>
+                            <td>156</td>
+                        </tr>
+                        <tr>
+                            <td>Materias Reprobadas</td>
+                            <td>3</td>
+                            <td>11</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-hide="hide">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Elige las materias que quisieras cursar el siguiente semestre.</h5>
+            </div>
+            <div class="ibox-content">
+                <form action="#" id="form" class="wizard-big">
+                    <div class="form-group">
+                        <!--select class="form-control" multiple bs-duallistbox style="display: none;" ng-model="materiasElegidas"-->
+                        <select 
+                            class="dual_select"    
+                            ng-options="opt.id as opt.name for opt in materiasDisponibles"
+                            multiple
+                            ng-model="materiasElegidas"
+                            bs-duallistbox >
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="example-text-input" class="col-form-label">¿Actualmete trabajas?</label><br>
+                                <label class="custom-control custom-radio">
+                                  <input id="radio1" name="radio" type="radio" class="custom-control-input" value="1" ng-model="trabaja" ng-change="cambiaEstatusTrabaja()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">Si</span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="radio2" name="radio" type="radio" class="custom-control-input" value="0" ng-model="trabaja" ng-change="cambiaEstatusTrabaja()">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description">No</span>
+                                </label>  
+                            </div>
+                            <div class="col-md-3" ng-hide="trabaja==0">
+                                <label for="cboHoras">¿Cuántas horas al día?</label>
+                                <select 
+                                        class="form-control"
+                                        ng-init="horasTrabajo = horas[0].id" 
+                                        ng-model="horasTrabajo" 
+                                        ng-options="opt.id as opt.dato for opt in horas">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-lg btn-block" ng-click="open()"l>Enviar datos</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $('.dual_select').bootstrapDualListbox({
+            selectorMinimalHeight: 160,
+            //showFilterInputs: false,
+            filterPlaceHolder: 'Filtrar',
+            //selectedListLabel: 'Materias',
+            infoText: false,
+            filterTextClear: false
+        });
+    });
+</script>
