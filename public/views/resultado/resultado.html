@@ -1,0 +1,26 @@
+<!--div class="modal-body"><div>{{$ctrl.greeting}}</div> 
+    <label>Name To Edit</label> <input ng-model="$ctrl.modalData.name"><br>
+    <label>Value To Edit</label> <input ng-model="$ctrl.modalData.value"><br>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.handleClose()">Close Modal</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.handleDismiss()">Dimiss Modal</button>
+</div-->
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<div class="inmodal">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ $ctrl.materias.length }} {{ $ctrl.materiasSegundo.length }}</h4>
+        <small class="font-bold"> . . . . . . . . . . . . . . . </small>
+    </div>
+    <div class="modal-body">
+        <p><strong>Nuestra recomendación para ti</strong>
+            es que reconsideres cursar en este semestre la asignatura de <strong>Cálculo 2</strong>
+        </p>
+    </div>
+    <div id="container"></div>
+    <div class="modal-footer">
+<!--
+        <button type="button" class="btn btn-white" ng-click="cancel()">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="ok()">Save changes</button>
+-->
+    </div>
+</div>

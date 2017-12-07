@@ -7,22 +7,16 @@ angular.module('orientame', [
   'ui.bootstrap',
 
     // internal
-    'resumen',
-
+  'resumen',
+  'resultado'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('');
   $locationProvider.html5Mode({enabled:false});
 
   $routeProvider
-      .when('/orienta',{
+      .when('/start',{
           template:'<resumen></resumen>'
       })
-      .when('/blog/1',{
-        template:'<h1>Hola</h1>'
-      })
-      .when('/blog/2',{
-          template:'<blog-list></blog-list>'
-      })
-      .otherwise({redirectTo: '/view1'});
+      .otherwise({redirectTo: '/start'});
 }]);

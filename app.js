@@ -25,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 //app.use('/users', users);
 
+app.use(function(req, res) {
+  // Use res.sendfile, as it streams instead of reading the file into memory.
+  res.sendfile(path.join(__dirname, 'public/views/index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
