@@ -1,14 +1,26 @@
-<!--div class="modal-body"><div>{{$ctrl.greeting}}</div> 
-    <label>Name To Edit</label> <input ng-model="$ctrl.modalData.name"><br>
-    <label>Value To Edit</label> <input ng-model="$ctrl.modalData.value"><br>
-    <button class="btn btn-warning" type="button" ng-click="$ctrl.handleClose()">Close Modal</button>
-    <button class="btn btn-warning" type="button" ng-click="$ctrl.handleDismiss()">Dimiss Modal</button>
-</div-->
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/highcharts-more.js"></script>
-<div class="inmodal">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5 id="test">Reporte</h5>
+            </div>
+            <div class="ibox-content">
+              <div class="row">
+                <div class="col-md-6">
+                  <highchart id="chart1" config="$ctrl.chartConfigEscuela"></highchart>
+                </div>
+                <div class="col-md-6">
+                  <highchart id="chart2" config="$ctrl.chartConfigCasa"></highchart>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="modal-dialog modal-lg">
     <div class="modal-header">
-        <h4 class="modal-title">{{ $ctrl.materias.length }} {{ $ctrl.materiasSegundo.length }}</h4>
+        <h4 class="modal-title">{{ materiasSegundo.length }}</h4>
         <small class="font-bold"> . . . . . . . . . . . . . . . </small>
     </div>
     <div class="modal-body">
@@ -16,11 +28,14 @@
             es que reconsideres cursar en este semestre la asignatura de <strong>Cálculo 2</strong>
         </p>
     </div>
-    <div id="container"></div>
+    <highchart id="chart1" config="$ctrl.chartConfig"></highchart>
     <div class="modal-footer">
+-->
 <!--
         <button type="button" class="btn btn-white" ng-click="cancel()">Close</button>
         <button type="button" class="btn btn-primary" ng-click="ok()">Save changes</button>
 -->
+<!--
     </div>
 </div>
+-->

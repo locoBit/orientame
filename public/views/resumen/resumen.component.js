@@ -3,7 +3,7 @@
 resumen.component('resumen', {
     templateUrl: 'views/resumen/resumen.html',
 //    template: 'I am content! <button type="button" class="btn btn-default" ng-click="open()">Open Modal</button>',
-    controller: function($scope, $uibModal, $http, $location) {
+    controller: function($scope, $uibModal, $http, $location, materiasService) {
         var $ctrl = this;
         let materiasACursar = [];
         $scope.primeraSeleccion = true;
@@ -79,6 +79,10 @@ resumen.component('resumen', {
                 $scope.materiasElegidas = [];
             } else {
                 $ctrl.materias = [{materiasACursar:materiasACursar},{materiasSegundo:$scope.materiasElegidas}];
+                materiasService.aCursar = materiasACursar;
+                materiasService.enSegundoCurso = $scope.materiasElegidas;
+                $location.path('/report');
+/*                
                 $uibModal.open({
                 template: `<resultado materias="$ctrl.materias"></resultado>`,
                 controller: function() {
@@ -86,6 +90,7 @@ resumen.component('resumen', {
                 },
                     controllerAs: '$ctrl'
                 });
+*/                
             }
         };
         

@@ -13,7 +13,8 @@
     "html5-boilerplate": "^5.3.0",
     "angular-bootstrap-duallistbox": "^0.1.0",
     "jquery": "^3.2.1",
-    "angular-bootstrap": "^2.5.0"
+    "angular-bootstrap": "^2.5.0",
+    "highcharts-ng": "^1.2.0"
   },
   "resolutions": {
     "angular": "1.5.11",

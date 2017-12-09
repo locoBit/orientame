@@ -1,10 +1,11 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('orientame', [
+var app = angular.module('orientame', [
   'ngRoute',
   'frapontillo.bootstrap-duallistbox',
   'ui.bootstrap',
+  'highcharts-ng',
 
     // internal
   'resumen',
@@ -17,6 +18,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   $routeProvider
       .when('/start',{
           template:'<resumen></resumen>'
+      })
+      .when('/report',{
+          template:'<resultado></resultado>'
       })
       .otherwise({redirectTo: '/start'});
 }]);
