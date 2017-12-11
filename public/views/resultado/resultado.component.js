@@ -14,7 +14,13 @@ resultado.component('resultado', {
         let horasCasa    = 0;
         
         let materiasACursar = materiasService.aCursar;
-        let materiasSegundo = materiasService.enSegundoCurso;
+        $scope.materiasSegundo = materiasService.enSegundoCurso;
+        let horasTrabajo    = materiasService.horasTrabajo;
+        $scope.horasLibres  = 0;
+        
+        $scope.icon = "";
+        $scope.colorWidget = "";
+        $scope.recomendacion = "";
         
         let init = function() {
             materiasACursar.forEach(function(materia) {
@@ -132,15 +138,94 @@ resultado.component('resultado', {
                 },
             
                 series: [{
-                    name: 'Brands',
+                    name: 'Hotas',
                     colorByPoint: true,
                     data: arrHorasCasa
                 }]
             };
         }
         
+        let drawChartPie = function () {
+            
+            $scope.horasLibres = 168 - ( horasCasa + horasEscuela + horasTrabajo );
+            
+            $ctrl.chartConfigPie = {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Distribución de horas a la semana'
+                },
+                subtitle: {
+                    text: 'La semana tiene 168 horas en total'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.y}',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Horas',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'En la escuela',
+                        y: horasEscuela
+                    }, {
+                        name: 'Estudio en casa',
+                        y: horasCasa
+                    }, {
+                        name: 'En el trabajo',
+                        y: horasTrabajo
+                    }, {
+                        name: 'Tiempo libre',
+                        y: $scope.horasLibres,
+                        sliced: true,
+                        selected: true
+                    }]
+                }]
+            }
+        };
+        
+        let setRecomendacion = function() {
+            
+            if ( ($scope.materiasSegundo.length >= 2 && $scope.horasLibres < 110) ||
+                ($scope.horasLibres < 110) ||
+                ($scope.materiasSegundo.length > 3) ) {
+                $scope.icon = "fa-frown-o";
+                $scope.colorWidget = "red-bg";
+                $scope.recomendacion = "Tienes una sobrecarga de trabajo";
+            } else if ( ($scope.materiasSegundo.length > 0 && $scope.horasLibres < 120) ||
+                ($scope.horasLibres < 120) ||
+                ($scope.materiasSegundo.length > 0) ) {
+                $scope.icon = "fa-meh-o";
+                $scope.colorWidget = "yellow-bg";
+                $scope.recomendacion = "Parece que tendrás un semestre dificil";
+            } else {
+                $scope.icon = "fa-smile-o";
+                $scope.colorWidget = "navy-bg";
+                $scope.recomendacion = "Mucho éxito en tu semestre";
+            }
+            
+        };
+        
         init();
         drawChartEscuela();
         drawChartCasa();
+        drawChartPie();
+        setRecomendacion();
     }
 });

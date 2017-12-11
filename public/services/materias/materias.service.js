@@ -1,6 +1,7 @@
 'use strict';
 
 app.service('materiasService', function() {
-    var aCursar = [];
-    var enSegundoCurso = [];
+    let aCursar = [];
+    let enSegundoCurso = [];
+    let horasTrabajo = 0;
 });

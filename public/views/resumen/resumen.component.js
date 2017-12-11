@@ -23,6 +23,7 @@ resumen.component('resumen', {
         $scope.hide = true;
         $scope.trabaja = 0;
         $scope.horasTrabajo = 0;
+        $scope.diasTrabajo = 0;
         $scope.creditos = 0;
         $scope.horas = [
             {id: 0, dato: 'Seleccione...'},
@@ -33,7 +34,17 @@ resumen.component('resumen', {
             {id: 5, dato: '5'},
             {id: 6, dato: '6'},
             {id: 7, dato: '7'},
-            {id: 8, dato: '8 o más'},
+            {id: 8, dato: '8'},
+        ];
+        $scope.dias = [
+            {id: 0, dato: 'Seleccione...'},
+            {id: 1, dato: '1'},
+            {id: 2, dato: '2'},
+            {id: 3, dato: '3'},
+            {id: 4, dato: '4'},
+            {id: 5, dato: '5'},
+            {id: 6, dato: '6'},
+            {id: 7, dato: '7'}
         ];
         $scope.materiasDisponibles = [];
         
@@ -78,19 +89,10 @@ resumen.component('resumen', {
                 materiasACursar = $scope.materiasElegidas;
                 $scope.materiasElegidas = [];
             } else {
-                $ctrl.materias = [{materiasACursar:materiasACursar},{materiasSegundo:$scope.materiasElegidas}];
-                materiasService.aCursar = materiasACursar;
+                materiasService.aCursar        = materiasACursar;
                 materiasService.enSegundoCurso = $scope.materiasElegidas;
+                materiasService.horasTrabajo   = $scope.horasTrabajo * $scope.diasTrabajo;
                 $location.path('/report');
-/*                
-                $uibModal.open({
-                template: `<resultado materias="$ctrl.materias"></resultado>`,
-                controller: function() {
-                    this.materias = $ctrl.materias;
-                },
-                    controllerAs: '$ctrl'
-                });
-*/                
             }
         };
         

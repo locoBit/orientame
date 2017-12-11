@@ -13,29 +13,65 @@
                   <highchart id="chart2" config="$ctrl.chartConfigCasa"></highchart>
                 </div>
               </div>
+              <div class="hr-line-dashed"></div>
+              <div class="row">
+                <div class="col-md-6">
+                  <highchart id="chart3" config="$ctrl.chartConfigPie"></highchart>
+                </div>
+                <div class="col-md-6">
+                  <text x="300" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:18px;fill:#333333;" y="24">
+                    <tspan>Resumen</tspan>
+                  </text>
+                  <div class="hr-line-dashed"></div>
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <h3 class="text-success">Horas libres</h3>
+                    </div>
+                    <div class="col-sm-10">
+                      Tienes un total de <bold>{{ horasLibres }} horas libres</bold> entre las cuales
+                      debes distribuir tu tiempo para dormir, para tus traslados,
+                      para comer y para actividades extras.
+                    </div>
+                  </div>
+                  <div class="hr-line-dashed"></div>
+                  <div class="row" ng-hide="materiasSegundo.length==0">
+                    <div class="col-sm-2">
+                      <h3 class="text-danger">Segundo curso</h3>
+                    </div>
+                    <div class="col-sm-10">
+                      Presta especial atención en estas materias:
+                      <ul>
+                        <li ng-repeat="ms in materiasSegundo" ng-bind-html-unsafe="ms.nombre">
+                          {{ ms.nombre  }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="hr-line-dashed"></div>
+                  <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                      <div class="widget {{ colorWidget }} p-lg text-center">
+                        <div class="m-b-md">
+                          <i class="fa {{ icon }} fa-5x"></i>
+                          <h3 class="font-bold no-margins">
+                            {{ recomendacion }}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
     </div>
 </div>
 <!--
-<div class="modal-dialog modal-lg">
-    <div class="modal-header">
-        <h4 class="modal-title">{{ materiasSegundo.length }}</h4>
-        <small class="font-bold"> . . . . . . . . . . . . . . . </small>
-    </div>
-    <div class="modal-body">
-        <p><strong>Nuestra recomendación para ti</strong>
-            es que reconsideres cursar en este semestre la asignatura de <strong>Cálculo 2</strong>
-        </p>
-    </div>
-    <highchart id="chart1" config="$ctrl.chartConfig"></highchart>
-    <div class="modal-footer">
--->
-<!--
-        <button type="button" class="btn btn-white" ng-click="cancel()">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="ok()">Save changes</button>
--->
-<!--
-    </div>
-</div>
+fa-frown-o =(
+
+fa-meh-o =|
+
+fa-smile-o =)
 -->
