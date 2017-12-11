@@ -14,9 +14,9 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "ubuntu",
-    "password": "ubuntu",
-    "database": "ubuntu",
+    "username": "sjzpcinygdjdjt",
+    "password": "1b81500502717a0720f2e0c3ac5092ce929175535a31ef1fdb4a927433bc244c",
+    "database": "d5p7g6fjf2j52u",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
