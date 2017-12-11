@@ -10,9 +10,9 @@ exports.get = (req, res) => {
     
     db.materia.findAll({
         attributes: ["clave","nombre","periodo","ht","hp","creditos","bloque","nucleo","optabilidad","division"],
-        where: { [att]: {
+       /* where: { [att]: {
             [Op.in]: [val, 'TC']
-        }},
+        }},*/
         order: ["periodo", "nombre"],
         raw: true
     }).then( arrMaterias => {
