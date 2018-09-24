@@ -1,15 +1,16 @@
 {
   "development": {
-    "username": "ubuntu",
-    "password": "ubuntu",
-    "database": "ubuntu",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "postgres",
     "host": "127.0.0.1",
+    "port": "5431",
     "dialect": "postgres"
   },
   "test": {
-    "username": "ubuntu",
-    "password": "ubuntu",
-    "database": "ubuntu",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "postgres",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
