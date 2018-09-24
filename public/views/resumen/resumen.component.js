@@ -51,7 +51,7 @@ resumen.component('resumen', {
         $scope.materiasElegidas = [];
         
         $scope.enviarDatosAlumno = function() {
-            $http.get(`https://${$location.host()}/api/materias/division/${$scope.txtLicenciatura}`)
+            $http.get(`http://127.0.0.1:3000/api/materias/division/${$scope.txtLicenciatura}`)
             .then(function(res) {
                 if (res.data.success) {
                     $scope.materiasDisponibles = res.data.materias;
